@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DriveMaster Academy | PrimePrint Apps</title>
+
+    <meta name="description"
+          content="DriveMaster Academy helps learners understand driving theory, road signs, road safety and essential driving skills.">
+
+    <meta name="theme-color" content="#0f766e">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: #0f172a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,.18);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #22c55e;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #22c55e;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(34,197,94,.35),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #064e3b,
+                    #0f766e,
+                    #155e75
+                );
+
+            color: white;
+            padding: 90px 25px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .app-logo {
+            width: 150px;
+            height: 150px;
+
+            border-radius: 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #22c55e,
+                    #0ea5e9
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 82px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.35);
+
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #22c55e;
+            color: #052e16;
+
+            padding: 7px 14px;
+            border-radius: 20px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            color: #d1fae5;
+            font-size: 19px;
+            max-width: 620px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #22c55e;
+            color: #052e16;
+        }
+
+        .btn-primary:hover {
+            background: #16a34a;
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: #0f172a;
+        }
+
+        .btn-white:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0f172a;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,.1);
+
+            border: 1px solid rgba(255,255,255,.2);
+
+            border-radius: 25px;
+
+            padding: 35px;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card h3 {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            color: #facc15;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,.1);
+            padding: 18px;
+            border-radius: 12px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 19px;
+        }
+
+        .stat span {
+            color: #d1fae5;
+            font-size: 13px;
+        }
+
+        /* GENERAL */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-6px);
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #64748b;
+        }
+
+        /* LESSONS */
+
+        .lessons-section {
+            background: white;
+        }
+
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+        }
+
+        .lesson {
+            display: flex;
+            gap: 18px;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            background: #f8fafc;
+
+            border-left: 5px solid #0f766e;
+        }
+
+        .lesson-number {
+            min-width: 45px;
+            height: 45px;
+
+            background: #0f766e;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 800;
+        }
+
+        .lesson h3 {
+            margin-bottom: 5px;
+        }
+
+        .lesson p {
+            color: #64748b;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: #16a34a;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .driving-preview {
+            min-height: 360px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #0f766e
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 110px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.18);
+        }
+
+        /* ROAD SIGNS */
+
+        .signs {
+            background: #f1f5f9;
+        }
+
+        .sign-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .sign-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 18px;
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,.06);
+        }
+
+        .sign-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .sign-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* SCREENSHOTS */
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .screenshot {
+            min-height: 320px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d1fae5,
+                    #dbeafe
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            color: #475569;
+
+            font-weight: 700;
+
+            border: 2px dashed #94a3b8;
+        }
+
+        /* PRICING */
+
+        .pricing-section {
+            background: #f1f5f9;
+        }
+
+        .pricing {
+            max-width: 520px;
+            margin: auto;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.08);
+        }
+
+        .pricing h3 {
+            font-size: 28px;
+        }
+
+        .price {
+            font-size: 45px;
+            font-weight: 900;
+            color: #0f766e;
+            margin: 20px 0;
+        }
+
+        .price-note {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .pricing ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .pricing li {
+            margin: 10px 0;
+        }
+
+        .pricing li::before {
+            content: "✓";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* FAQ */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 12px;
+            padding: 20px 25px;
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,.05);
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        details p {
+            color: #64748b;
+            margin-top: 12px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f766e,
+                    #2563eb
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 80px 25px;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #020617;
+            color: #cbd5e1;
+            padding: 50px 25px 25px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        footer a:hover {
+            color: #22c55e;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #334155;
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .hero-content,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .lesson-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sign-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 6px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .sign-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .app-logo {
+                width: 120px;
+                height: 120px;
+                font-size: 65px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            PrimePrint<span>Apps</span>
+        </div>
+
+        <nav>
+
+            <a href="../index.html">Home</a>
+
+            <a href="../apps.html">Apps</a>
+
+            <a href="../index.html#categories">
+                Categories
+            </a>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div>
+
+            <div class="app-logo">
+                🚗
+            </div>
+
+            <span class="badge">
+                EDUCATION APP
+            </span>
+
+            <h1>
+                DriveMaster Academy
+            </h1>
+
+            <p class="hero-description">
+
+                Learn driving theory, road signs, road safety
+                and essential driving skills through an
+                engaging digital learning experience.
+
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="#"
+                    class="btn btn-primary"
+                >
+                    📱 Google Play
+                </a>
+
+                <a
+                    href="#"
+                    class="btn btn-white"
+                >
+                    🌐 Launch Web App
+                </a>
+
+                <a
+                    href="#premium"
+                    class="btn btn-outline"
+                >
+                    ⭐ Premium
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <h3>
+                Learn. Practice. Drive Safely.
+            </h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                A learning platform designed to help
+                aspiring drivers build their knowledge
+                before getting behind the wheel.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>📚 Lessons</strong>
+                    <span>Structured learning topics</span>
+                </div>
+
+                <div class="stat">
+                    <strong>🚦 Road Signs</strong>
+                    <span>Understand important signs</span>
+                </div>
+
+                <div class="stat">
+                    <strong>📝 Practice</strong>
+                    <span>Test your knowledge</span>
+                </div>
+
+                <div class="stat">
+                    <strong>🛡️ Safety</strong>
+                    <span>Learn safer driving habits</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Powerful Learning Features
+            </h2>
+
+            <p>
+                Everything learners need to build their
+                driving knowledge.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Driving Lessons
+                </h3>
+
+                <p>
+                    Follow structured lessons covering
+                    important driving concepts.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🚦
+                </div>
+
+                <h3>
+                    Road Signs
+                </h3>
+
+                <p>
+                    Learn the meaning and purpose of
+                    common road signs.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛣️
+                </div>
+
+                <h3>
+                    Road Rules
+                </h3>
+
+                <p>
+                    Understand important road rules and
+                    responsible driving practices.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Practice Tests
+                </h3>
+
+                <p>
+                    Test your understanding with practice
+                    questions and quizzes.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Safety Education
+                </h3>
+
+                <p>
+                    Learn defensive driving and safer
+                    road-use principles.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile Friendly
+                </h3>
+
+                <p>
+                    Study conveniently on phones,
+                    tablets and desktop devices.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LESSONS -->
+
+<section class="lessons-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                What You Can Learn
+            </h2>
+
+            <p>
+                A growing collection of driving education topics.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-grid">
+
+            <div class="lesson">
+
+                <div class="lesson-number">1</div>
+
+                <div>
+                    <h3>Introduction to Driving</h3>
+
+                    <p>
+                        Understand the basics of responsible
+                        driving and vehicle control.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">2</div>
+
+                <div>
+                    <h3>Road Signs and Markings</h3>
+
+                    <p>
+                        Learn how to recognize and understand
+                        important road signs.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">3</div>
+
+                <div>
+                    <h3>Traffic Rules</h3>
+
+                    <p>
+                        Study traffic rules and responsible
+                        road behavior.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">4</div>
+
+                <div>
+                    <h3>Defensive Driving</h3>
+
+                    <p>
+                        Learn techniques for identifying
+                        hazards and reducing risks.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">5</div>
+
+                <div>
+                    <h3>Vehicle Safety</h3>
+
+                    <p>
+                        Understand basic vehicle checks
+                        and safety practices.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="lesson">
+
+                <div class="lesson-number">6</div>
+
+                <div>
+                    <h3>Driving Test Preparation</h3>
+
+                    <p>
+                        Prepare for theoretical driving
+                        knowledge tests.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ROAD SIGNS -->
+
+<section class="signs">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Learn Road Signs
+            </h2>
+
+            <p>
+                Recognize important road signs and their meanings.
+            </p>
+
+        </div>
+
+
+        <div class="sign-grid">
+
+            <div class="sign-card">
+
+                <div class="sign-icon">
+                    🛑
+                </div>
+
+                <h3>
+                    Stop
+                </h3>
+
+                <p>
+                    Learn when and where drivers must stop.
+                </p>
+
+            </div>
+
+
+            <div class="sign-card">
+
+                <div class="sign-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Warning
+                </h3>
+
+                <p>
+                    Identify signs that warn drivers about hazards.
+                </p>
+
+            </div>
+
+
+            <div class="sign-card">
+
+                <div class="sign-icon">
+                    🚫
+                </div>
+
+                <h3>
+                    Prohibition
+                </h3>
+
+                <p>
+                    Understand restrictions and prohibited actions.
+                </p>
+
+            </div>
+
+
+            <div class="sign-card">
+
+                <div class="sign-icon">
+                    ➡️
+                </div>
+
+                <h3>
+                    Direction
+                </h3>
+
+                <p>
+                    Learn signs that provide directions and guidance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+
+                <h2>
+                    Become a More Knowledgeable Driver
+                </h2>
+
+                <p>
+                    DriveMaster Academy is designed to make
+                    driving education easier to understand
+                    and more accessible.
+                </p>
+
+                <p>
+                    Use the app to study important concepts,
+                    review road signs and practice your knowledge
+                    before taking a driving theory test.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>
+                        Structured driving lessons
+                    </li>
+
+                    <li>
+                        Road sign education
+                    </li>
+
+                    <li>
+                        Traffic rules and safety
+                    </li>
+
+                    <li>
+                        Practice questions
+                    </li>
+
+                    <li>
+                        Mobile-friendly learning
+                    </li>
+
+                    <li>
+                        Regular content improvements
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="driving-preview">
+                🚗
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SCREENSHOTS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                App Screenshots
+            </h2>
+
+            <p>
+                Screenshots will be added as the app interface
+                continues to be finalized.
+            </p>
+
+        </div>
+
+
+        <div class="screenshots">
+
+            <div class="screenshot">
+                🚗<br><br>
+                Home & Lessons
+            </div>
+
+            <div class="screenshot">
+                🚦<br><br>
+                Road Signs
+            </div>
+
+            <div class="screenshot">
+                📝<br><br>
+                Practice Test
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PREMIUM -->
+
+<section class="pricing-section" id="premium">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                DriveMaster Premium
+            </h2>
+
+            <p>
+                Unlock additional learning resources and features.
+            </p>
+
+        </div>
+
+
+        <div class="pricing">
+
+            <h3>
+                Premium Learning
+            </h3>
+
+            <div class="price">
+                Premium
+            </div>
+
+            <p class="price-note">
+                Pricing and payment options will be configured
+                before launch.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Additional driving lessons
+                </li>
+
+                <li>
+                    Expanded practice questions
+                </li>
+
+                <li>
+                    Additional road-sign resources
+                </li>
+
+                <li>
+                    Premium learning materials
+                </li>
+
+                <li>
+                    Future premium features
+                </li>
+
+            </ul>
+
+
+            <!-- Paystack will be connected here later -->
+
+            <a
+                href="#"
+                class="btn btn-primary"
+                onclick="showPaymentMessage(event)"
+            >
+                💳 Get Premium
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+            <details>
+
+                <summary>
+                    What is DriveMaster Academy?
+                </summary>
+
+                <p>
+                    DriveMaster Academy is a digital learning
+                    platform designed to help learners study
+                    driving theory, road signs and road safety.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Is DriveMaster Academy a replacement for driving school?
+                </summary>
+
+                <p>
+                    No. The app is an educational support tool.
+                    Practical driving instruction should be obtained
+                    from a qualified driving instructor where required.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I use it on my phone?
+                </summary>
+
+                <p>
+                    Yes. The website and planned app experience
+                    are designed to work well on mobile devices.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Will there be practice tests?
+                </summary>
+
+                <p>
+                    Yes. Practice questions and quizzes can be
+                    included to help learners review their knowledge.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Where can I get the app?
+                </summary>
+
+                <p>
+                    The Google Play and web-app buttons will be
+                    connected when the corresponding versions are ready.
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Start Learning Today
+    </h2>
+
+    <p>
+        Build your driving knowledge before you take to the road.
+    </p>
+
+    <div
+        class="buttons"
+        style="justify-content:center;"
+    >
+
+        <a
+            href="#"
+            class="btn btn-white"
+        >
+            📱 Get the App
+        </a>
+
+        <a
+            href="../apps.html"
+            class="btn btn-outline"
+        >
+            ← Back to Apps
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                PrimePrint Apps
+            </h3>
+
+            <p>
+                Discover, download and purchase useful apps
+                created by PrimePrint Digital.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                App
+            </h3>
+
+            <a href="../apps.html">
+                All Apps
+            </a>
+
+            <a href="../index.html#categories">
+                Categories
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms of Service
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 PrimePrint Apps.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function showPaymentMessage(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Premium payment will be connected to Paystack after the storefront is configured."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
