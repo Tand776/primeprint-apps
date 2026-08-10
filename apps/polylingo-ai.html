@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PolyLingo AI - PrimePrint Apps</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7ff;
+    color: #172033;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 18px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+.hero {
+    background: linear-gradient(135deg, #eef2ff, #faf5ff);
+    padding: 80px 7%;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #1e1b4b;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #4b5563;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3730a3;
+}
+
+.btn-secondary {
+    background: white;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+.app-card {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(79, 70, 229, 0.18);
+    text-align: center;
+}
+
+.app-icon {
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #4f46e5, #a855f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.app-card h2 {
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.rating {
+    color: #f59e0b;
+    margin: 10px 0;
+}
+
+section {
+    padding: 70px 7%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    color: #1e1b4b;
+    margin-bottom: 45px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    color: #3730a3;
+    margin-bottom: 10px;
+}
+
+.languages {
+    background: #111827;
+    color: white;
+}
+
+.languages .section-title {
+    color: white;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+}
+
+.language {
+    background: #1f2937;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.about {
+    background: white;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    color: #4b5563;
+}
+
+.pricing {
+    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+}
+
+.price-card {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.price {
+    font-size: 45px;
+    font-weight: bold;
+    color: #4f46e5;
+    margin: 15px 0;
+}
+
+.price-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.price-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cta {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.cta .btn {
+    background: white;
+    color: #4f46e5;
+}
+
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 35px 7%;
+    text-align: center;
+}
+
+footer a {
+    color: #a5b4fc;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .language-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav a {
+        margin: 0 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+        <div class="logo">PrimePrint Apps</div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../apps.html">Apps</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div>
+
+            <span class="badge">🌍 AI Language Learning</span>
+
+            <h1>PolyLingo AI</h1>
+
+            <p>
+                Learn languages smarter with an AI-powered language learning
+                experience designed to help you improve vocabulary,
+                pronunciation, conversations and everyday communication.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#" class="btn btn-primary">
+                    🚀 Get PolyLingo AI
+                </a>
+
+                <a href="#features" class="btn btn-secondary">
+                    Explore Features
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="app-card">
+
+            <div class="app-icon">P</div>
+
+            <h2>PolyLingo AI</h2>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                Your intelligent multilingual learning companion.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="features">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Powerful Learning Features
+        </h2>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Learning Assistant</h3>
+                <p>
+                    Practice conversations and learn through
+                    intelligent AI-powered interactions.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🗣️</div>
+                <h3>Speaking Practice</h3>
+                <p>
+                    Improve your speaking confidence and practice
+                    useful everyday conversations.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <h3>Vocabulary Builder</h3>
+                <p>
+                    Build your vocabulary using structured lessons,
+                    exercises and practice activities.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🎧</div>
+                <h3>Listening Practice</h3>
+                <p>
+                    Develop your listening skills with language
+                    practice designed for different learning levels.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✍️</div>
+                <h3>Writing Practice</h3>
+                <p>
+                    Practice writing words and sentences while
+                    improving your understanding of the language.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>Track Your Progress</h3>
+                <p>
+                    Monitor your learning journey and stay motivated
+                    as your language skills improve.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="languages">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Learn Multiple Languages
+        </h2>
+
+        <div class="language-grid">
+
+            <div class="language">🇬🇧 English</div>
+            <div class="language">🇫🇷 French</div>
+            <div class="language">🇸🇦 Arabic</div>
+            <div class="language">🇨🇳 Chinese</div>
+            <div class="language">🇯🇵 Japanese</div>
+            <div class="language">🇳🇬 Hausa</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            About PolyLingo AI
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                PolyLingo AI is designed to make language learning
+                accessible, interactive and enjoyable. Whether you are
+                a student, traveller, professional or simply interested
+                in learning a new language, PolyLingo AI provides
+                practical tools to help you learn at your own pace.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="pricing">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Choose Your Learning Experience
+        </h2>
+
+        <div class="price-card">
+
+            <h2>PolyLingo AI Premium</h2>
+
+            <div class="price">
+                Premium
+            </div>
+
+            <p>
+                Unlock the complete language-learning experience.
+            </p>
+
+            <ul>
+                <li>✅ AI language practice</li>
+                <li>✅ Multiple languages</li>
+                <li>✅ Vocabulary exercises</li>
+                <li>✅ Speaking practice</li>
+                <li>✅ Listening practice</li>
+                <li>✅ Progress tracking</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary">
+                Get Premium
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>Start Learning Today 🌍</h2>
+
+        <p>
+            Discover a smarter and more enjoyable way to learn languages.
+        </p>
+
+        <a href="#" class="btn">
+            Get PolyLingo AI
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 PrimePrint Digital. All Rights Reserved.
+    </p>
+
+    <p>
+        <a href="../index.html">PrimePrint Apps</a>
+    </p>
+
+</footer>
+
+</body>
+</html>
