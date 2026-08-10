@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apps | PrimePrint Apps</title>
+
+    <meta name="description"
+          content="Explore apps created by PrimePrint Apps for productivity, education, finance, kids, languages and more.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #22c55e;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #22c55e;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #111827, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #22c55e;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #dbeafe;
+            font-size: 19px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter button {
+            border: none;
+            background: #e2e8f0;
+            padding: 11px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .filter button:hover,
+        .filter button.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .app-icon {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+            color: white;
+        }
+
+        .calculator {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+
+        .driving {
+            background: linear-gradient(135deg, #059669, #0f766e);
+        }
+
+        .currency {
+            background: linear-gradient(135deg, #16a34a, #0891b2);
+        }
+
+        .christian {
+            background: linear-gradient(135deg, #7c3aed, #db2777);
+        }
+
+        .kids {
+            background: linear-gradient(135deg, #f97316, #eab308);
+        }
+
+        .language {
+            background: linear-gradient(135deg, #0284c7, #4f46e5);
+        }
+
+        .app-content {
+            padding: 25px;
+        }
+
+        .category {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .app-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .app-content p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .view-btn {
+            display: inline-block;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .view-btn:hover {
+            background: #2563eb;
+        }
+
+        .coming {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+
+        .coming h2 {
+            margin-bottom: 10px;
+        }
+
+        .coming p {
+            color: #64748b;
+        }
+
+        footer {
+            background: #020617;
+            color: #cbd5e1;
+            padding: 45px 25px;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #22c55e;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            PrimePrint<span>Apps</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <h1>Explore <span>PrimePrint Apps</span></h1>
+
+    <p>
+        Discover powerful and useful apps created to help
+        you learn, work, calculate, communicate and grow.
+    </p>
+
+</section>
+
+
+<main class="container">
+
+    <div class="section-title">
+
+        <h2>Our Apps</h2>
+
+        <p>
+            Browse our growing collection of applications.
+        </p>
+
+    </div>
+
+
+    <div class="filter">
+
+        <button class="active" onclick="filterApps('all')">
+            All Apps
+        </button>
+
+        <button onclick="filterApps('productivity')">
+            Productivity
+        </button>
+
+        <button onclick="filterApps('education')">
+            Education
+        </button>
+
+        <button onclick="filterApps('finance')">
+            Finance
+        </button>
+
+        <button onclick="filterApps('kids')">
+            Kids
+        </button>
+
+        <button onclick="filterApps('christian')">
+            Christian
+        </button>
+
+        <button onclick="filterApps('language')">
+            Languages
+        </button>
+
+    </div>
+
+
+    <div class="app-grid" id="appGrid">
+
+
+        <!-- ULTIMATE CALCULATOR -->
+
+        <div class="app-card" data-category="productivity">
+
+            <div class="app-icon calculator">
+                🧮
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Productivity
+                </span>
+
+                <h3>
+                    Ultimate Calculator Pro
+                </h3>
+
+                <p>
+                    A powerful scientific, arithmetic,
+                    graphing and engineering calculator.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/ultimate-calculator-pro.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DRIVEMASTER -->
+
+        <div class="app-card" data-category="education">
+
+            <div class="app-icon driving">
+                🚗
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Education
+                </span>
+
+                <h3>
+                    DriveMaster Academy
+                </h3>
+
+                <p>
+                    Learn driving theory, road signs,
+                    road safety and essential driving skills.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/drivemaster-academy.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CURRENCY -->
+
+        <div class="app-card" data-category="finance">
+
+            <div class="app-icon currency">
+                💱
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Finance
+                </span>
+
+                <h3>
+                    Currency Converter Plus
+                </h3>
+
+                <p>
+                    Convert currencies and perform useful
+                    financial calculations.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/currency-converter.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHRISTIAN -->
+
+        <div class="app-card" data-category="christian">
+
+            <div class="app-icon christian">
+                ✝️
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Christian
+                </span>
+
+                <h3>
+                    Christian Study Channel
+                </h3>
+
+                <p>
+                    Explore Bible studies, Christian
+                    learning and inspirational resources.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/christian-study-channel.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SMART KIDS -->
+
+        <div class="app-card" data-category="kids">
+
+            <div class="app-icon kids">
+                🧒
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Kids & Family
+                </span>
+
+                <h3>
+                    Smart Kids Learning
+                </h3>
+
+                <p>
+                    Fun educational activities designed
+                    to help children learn.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/smart-kids-learning.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- POLYLINGO -->
+
+        <div class="app-card" data-category="language">
+
+            <div class="app-icon language">
+                🗣️
+            </div>
+
+            <div class="app-content">
+
+                <span class="category">
+                    Languages
+                </span>
+
+                <h3>
+                    PolyLingo AI
+                </h3>
+
+                <p>
+                    Learn languages and improve communication
+                    with an AI-powered learning experience.
+                </p>
+
+                <a class="view-btn"
+                   href="apps/polylingo-ai.html">
+                    View App
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="coming">
+
+        <h2>🚀 More Apps Coming Soon</h2>
+
+        <p>
+            We're continuously building new applications
+            to make learning, work and everyday life easier.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>PrimePrint Apps</h3>
+
+    <p>
+        Discover, download and purchase apps created by
+        PrimePrint Digital.
+    </p>
+
+    <div style="margin-top:20px;">
+
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="index.html#contact">Contact</a>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 PrimePrint Apps. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function filterApps(category) {
+
+    const cards = document.querySelectorAll(".app-card");
+
+    const buttons = document.querySelectorAll(".filter button");
+
+    buttons.forEach(button => {
+        button.classList.remove("active");
+    });
+
+    event.target.classList.add("active");
+
+    cards.forEach(card => {
+
+        if (
+            category === "all" ||
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
